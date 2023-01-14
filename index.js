@@ -18,7 +18,7 @@ let rooms = [
     priceperhour: "750",
     bookingDetails: [
       {
-        customerName: "Ashish Mehra",
+        customerName: "Jeeva reha",
         reservationDate: new Date("2022-12-02"),
         startTime: "2022-12-02T09:30",
         endTime: "2022-12-02T14:00",
@@ -43,7 +43,7 @@ let rooms = [
     priceperhour: "1500",
     bookingDetails: [
       {
-        customerName: "Swathi Mishra",
+        customerName: "Robert pattinson",
         reservationDate: new Date("2022-12-03"),
         startTime: "2022-12-03T10:30",
         endTime: "2022-12-03T16:00",
@@ -72,7 +72,7 @@ let rooms = [
     priceperhour: "2500",
     bookingDetails: [
       {
-        customerName: "Deepa Das",
+        customerName: "Kristen Stewart",
         reservationDate: new Date("2022-12-04"),
         startTime: "2022-12-04T10:30",
         endTime: "2022-12-04T13:00",
@@ -138,10 +138,12 @@ app.post("/bookaRoom", function (request, response) {
           .send({ message: "Booking confirmed", rooms });
       } else {
         //throws an error if the booked date and timing hours coincide
-        return response.status(400).send({
-          message:
-            "Sorry! The room has been booked for the selected timeframe.Please select different Time slot",
-        });
+        return response
+          .status(400)
+          .send({
+            message:
+              "Sorry! The room has been booked for the selected timeframe.Please select different Time slot",
+          });
       }
     }
   }
