@@ -11,9 +11,9 @@ app.use(cors());
 
 let rooms = [
   {
-    roomID: "LP",
-    roomName: "Little Paradise",
-    seatsAvailable: "50",
+    roomID: "123",
+    roomName: "Wonderland",
+    seatsAvailable: "60",
     amenities: ["A/C", "Drinking-water", "Free-Parking", "WIFI"],
     priceperhour: "750",
     bookingDetails: [
@@ -22,13 +22,13 @@ let rooms = [
         reservationDate: new Date("2022-12-02"),
         startTime: "2022-12-02T09:30",
         endTime: "2022-12-02T14:00",
-        roomID: "LP",
+        roomID: "123",
         status: "Booking confirmed",
       },
     ],
   },
   {
-    roomID: "PA",
+    roomID: "456",
     roomName: "Paradise",
     seatsAvailable: "100",
     amenities: [
@@ -53,7 +53,7 @@ let rooms = [
     ],
   },
   {
-    roomID: "PS",
+    roomID: "789",
     roomName: "Paradise Suite",
     seatsAvailable: "150",
     amenities: [
@@ -138,12 +138,10 @@ app.post("/bookaRoom", function (request, response) {
           .send({ message: "Booking confirmed", rooms });
       } else {
         //throws an error if the booked date and timing hours coincide
-        return response
-          .status(400)
-          .send({
-            message:
-              "Sorry! The room has been booked for the selected timeframe.Please select different Time slot",
-          });
+        return response.status(400).send({
+          message:
+            "Sorry! The room has been booked for the selected timeframe.Please select different Time slot",
+        });
       }
     }
   }
